@@ -1,26 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { UnsplashImage } from './types/UnsplashImage';
+import React from 'react';
+import useUnsplashImage from './hooks/useUnsplashImage';
 import './App.css';
 
 const App: React.FC = () => {
-  const [imageUrl, setImageUrl] = useState<string>('');
-  const clientId = process.env.REACT_APP_UNSPLASH_ACCESS_KEY;
-
-  const fetchRandomImage = async () => {
-    try {
-      const response = await axios.get<UnsplashImage>(
-        `https://api.unsplash.com/photos/random?client_id=${clientId}`
-      );
-      setImageUrl(response.data.urls.regular);
-    } catch (error) {
-      console.error('Error fetching image from Unsplash', error);
-    }
-  };
-
-  useEffect(() => {
-    fetchRandomImage();
-  }, []);
+  const { imageUrl, error, fetchRandomImage } = useUnsplashImage();
 
   return (
     <div className="App">
