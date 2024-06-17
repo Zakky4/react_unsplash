@@ -1,4 +1,4 @@
-# Unsplash Image Rundom App
+# Random from Unsplash
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
