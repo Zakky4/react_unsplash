@@ -1,19 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import { UnsplashImage } from './types';
+import { UnsplashImage } from './types/UnsplashImage';
 import './App.css';
-
-type UnsplashImage = {
-  id: number;
-  width: number;
-  height: number;
-  urls: { large: string; regular: string; raw: string; small: string };
-  color: string | null;
-  user: {
-    username: string;
-    name: string;
-  };
-};
 
 const App: React.FC = () => {
   const [imageUrl, setImageUrl] = useState<string>('');
